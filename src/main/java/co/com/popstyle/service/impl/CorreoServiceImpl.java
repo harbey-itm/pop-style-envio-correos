@@ -47,7 +47,9 @@ public class CorreoServiceImpl implements ICorreoService {
 
 			ResponseEntity<String> respuesta = restTemplate.postForEntity(endPoint, entity, String.class);
 
-			if (respuesta.getStatusCodeValue() == 200) {
+			//logger.info("Respuesta del ws: status = "+respuesta.getStatusCodeValue());
+			
+			if (respuesta.getStatusCodeValue() == 201) {
 				logger.info("El correo ha sido envíado correctamente !!!");
 				return "OK";
 			} else {
